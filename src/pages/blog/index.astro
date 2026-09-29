@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('blog', ({ data }) => !data.brouillon))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base
+  title="Blog Google Ads & Meta Ads pour e-commerçants | PPC Alexia"
+  description="Conseils concrets sur Google Ads, Performance Max, Merchant Center et Meta Ads pour faire croître la rentabilité de votre e-commerce."
+>
+  <link slot="head" rel="stylesheet" href="/_site/css/blog.css" />
+  <main>
+    <section class="b-hero">
+      <div class="b-wrap">
+        <p class="b-label">// Blog</p>
+        <h1>Stratégies Google Ads &amp; Meta Ads pour e&#8209;commerçants.</h1>
+        <p class="b-lead">Ce que j'applique sur les comptes que je gère : Performance Max, flux Merchant Center, Meta Ads et rentabilité.</p>
+      </div>
+    </section>
+    <section class="b-body">
+      <div class="b-wrap">
+        {articles.length === 0 ? (
+          <p class="b-empty">Les premiers articles arrivent bientôt.</p>
+        ) : (
+          <div class="b-list">
+            {articles.map((a) => (
+              <a class="b-card" href={`/blog/${a.id}`}>
+                {a.data.categorie && <span class="b-cat">{a.data.categorie}</span>}
+                <h2>{a.data.title}</h2>
+                <p>{a.data.description}</p>
+                <span class="b-date">{fmt(a.data.date)}</span>
+                <span class="b-more">Lire l'article →</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</Base>

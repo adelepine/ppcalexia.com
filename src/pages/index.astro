@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import homeHtml from '../fragments/home.html?raw';
+---
+<Base
+  title="PPC Alexia | Consultante Google Ads & Facebook Ads, Lille"
+  description="Expert Google Ads & Facebook Ads basée à Lille. Je transforme vos budgets publicitaires en marges nettes. Réservez votre audit offert."
+>
+  <Fragment set:html={homeHtml} />
+</Base>
+
+<script is:inline>
+  // Lecture de la vidéo YouTube au clic (comme sur le site d'origine)
+  document.querySelectorAll('#ressources div.cursor-pointer').forEach(function (box) {
+    var img = box.querySelector('img[src*="img.youtube.com/vi/"]');
+    if (!img) return;
+    var id = img.src.split('/vi/')[1].split('/')[0];
+    box.addEventListener('click', function () {
+      box.innerHTML = '<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1" title="Vidéo YouTube" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    }, { once: true });
+  });
+</script>

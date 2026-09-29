@@ -1,0 +1,105 @@
+---
+import headerHtml from '../fragments/header.html?raw';
+import footerHtml from '../fragments/footer.html?raw';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  schema?: Record<string, unknown>;
+}
+
+const { title, description, type = 'website', schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'PPC Alexia',
+  description: 'Consultante Google Ads & Facebook Ads spécialisée e-commerce',
+  url: 'https://ppcalexia.com',
+  address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
+  priceRange: '€€',
+  sameAs: ['https://www.linkedin.com/in/alexia-delepine/', 'https://www.youtube.com/@ppcalexia'],
+};
+---
+<!doctype html>
+<html lang="fr" class="inter_8e2e04e4-module__oHaD3q__variable jetbrains_mono_8e1b1c2a-module__OyRuAW__variable">
+<head>
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MBGVZCC8');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Alexia Delépine" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="PPC Alexia" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:type" content={type} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-icon.png" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="preload" href="/_site/media/051742360c26797e-s.p.0f97p8c3305p~.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/_site/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/_site/css/fonts.css" />
+  <link rel="stylesheet" href="/_site/css/site.css" />
+  <slot name="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+</head>
+<body class="font-sans antialiased">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBGVZCC8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <Fragment set:html={headerHtml} />
+  <slot />
+  <Fragment set:html={footerHtml} />
+
+  <script is:inline>
+    (function () {
+      // Menu mobile
+      var btn = document.querySelector('button[aria-label="Toggle menu"]');
+      var panel = btn && btn.closest('header').querySelector('div.md\\:hidden.fixed');
+      if (btn && panel) {
+        // sortir le panneau du header (son flou d'arrière-plan le rognait)
+        document.body.appendChild(panel);
+        panel.style.zIndex = '49';
+        var bars = btn.querySelectorAll('span');
+        function setOpen(open) {
+          panel.classList.toggle('opacity-0', !open);
+          panel.classList.toggle('invisible', !open);
+          panel.classList.toggle('opacity-100', open);
+          panel.classList.toggle('visible', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+          if (bars.length === 3) {
+            bars[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+            bars[1].style.opacity = open ? '0' : '';
+            bars[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+          }
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        btn.addEventListener('click', function () { setOpen(panel.classList.contains('invisible')); });
+        panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+      }
+      // Bouton "Réserver" collant en bas sur mobile
+      var sticky = document.querySelector('div.fixed.bottom-0.translate-y-full');
+      if (sticky) {
+        var onScroll = function () {
+          var show = window.scrollY > 600;
+          sticky.classList.toggle('translate-y-full', !show);
+          sticky.classList.toggle('translate-y-0', show);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    })();
+  </script>
+</body>
+</html>
