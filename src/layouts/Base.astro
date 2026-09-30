@@ -110,7 +110,7 @@ const orgSchema = {
       <p class="nl-label">// Newsletter</p>
       <h2 class="nl-title" id="nl-pop-title">Recevez mes stratégies Google Ads &amp; Meta Ads.</h2>
       <p class="nl-text">Ce que je teste et ce qui fonctionne sur les comptes e-commerce que je gère, directement dans votre boîte mail.</p>
-      <div class="nl-embed"><iframe data-src="https://ppcalexia.substack.com/embed?transparent=1&light=1" title="Inscription à la newsletter PPC Alexia" frameborder="0" scrolling="no"></iframe></div>
+      <div class="nl-embed"><iframe data-src="https://ppcalexia.substack.com/embed" title="Inscription à la newsletter PPC Alexia" frameborder="0" scrolling="no"></iframe></div>
       <button type="button" class="nl-later" data-nl-close>Non merci</button>
     </div>
   </div>
@@ -118,12 +118,17 @@ const orgSchema = {
     (function () {
       var pop = document.getElementById('nl-pop');
       if (!pop) return;
+      // Une fois par visite (session du navigateur).
+      // Seule exception : la personne a cliqué dans le formulaire (probablement inscrite).
+      var SESSION_KEY = 'ppca_nl_seen';
       var KEY = 'ppca_nl_until';
       var DAY = 864e5;
       function get() { try { return +localStorage.getItem(KEY) || 0; } catch (e) { return 0; } }
       function snooze(days) { try { localStorage.setItem(KEY, String(Date.now() + days * DAY)); } catch (e) {} }
+      function seen() { try { return sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) { return false; } }
+      function markSeen() { try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {} }
       function track(name) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: name }); }
-      if (get() > Date.now()) return;
+      if (get() > Date.now() || seen()) return;
 
       var iframe = pop.querySelector('iframe');
       var shown = false, lastFocus = null;
@@ -140,7 +145,7 @@ const orgSchema = {
         pop.setAttribute('aria-hidden', 'false');
         if (sticky) sticky.style.visibility = 'hidden';
         pop.querySelector('.nl-close').focus();
-        snooze(7); // ne réapparaît pas avant 7 jours
+        markSeen(); // pas de nouvel affichage pendant cette visite
         track('newsletter_popup_view');
       }
       function close() {

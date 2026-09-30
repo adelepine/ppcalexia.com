@@ -2,8 +2,8 @@
 .nl-label{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:#9D00FF;margin:0 0 .9rem}
 .nl-title{color:#fff;font-size:clamp(1.35rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-.75px;line-height:1.2;margin:0 0 .75rem}
 .nl-text{color:rgba(255,255,255,.55);font-weight:300;line-height:1.6;margin:0;font-size:.95rem}
-.nl-embed{background:#fafafa;width:100%;max-width:480px}
-.nl-embed iframe{display:block;width:100%;height:150px;border:0;background:#fafafa}
+.nl-embed{background:#fff;width:100%;max-width:480px;padding:.5rem 0;border:1px solid rgba(157,0,255,.35)}
+.nl-embed iframe{display:block;width:100%;height:150px;border:0;background:#fff;color-scheme:light}
 
 .nl-foot{border-bottom:1px solid rgba(255,255,255,.08)}
 .nl-foot-grid{display:grid;gap:2rem;align-items:center}
