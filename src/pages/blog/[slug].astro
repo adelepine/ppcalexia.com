@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import '../../styles/blog.css';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -29,7 +30,6 @@ const schema = {
 };
 ---
 <Base title={`${title} | PPC Alexia`} description={description} type="article" schema={schema}>
-  <link slot="head" rel="stylesheet" href="/_site/css/blog.css" />
   <meta slot="head" property="article:published_time" content={date.toISOString()} />
   <main>
     <section class="b-hero">

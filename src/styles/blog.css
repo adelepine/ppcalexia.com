@@ -1,0 +1,54 @@
+/* Styles du blog : mêmes codes que le site (Inter, JetBrains Mono, violet #9D00FF, angles droits) */
+.b-hero{background:#050508;color:#fff;padding:calc(46px + 5rem) 0 4rem;position:relative;overflow:hidden}
+.b-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:40px 40px;opacity:.5;pointer-events:none}
+.b-wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem;position:relative}
+@media (min-width:1024px){.b-wrap{padding:0 2.5rem}}
+.b-narrow{max-width:720px}
+.b-label{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:#9D00FF;margin-bottom:1rem}
+.b-hero h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin:0 0 1.25rem}
+.b-hero p.b-lead{color:rgba(255,255,255,.6);font-weight:300;font-size:1.05rem;line-height:1.7;max-width:620px;margin:0}
+.b-meta{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.7rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px;margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+.b-crumbs{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.7rem;color:rgba(255,255,255,.4);margin-bottom:2rem}
+.b-crumbs a{color:rgba(255,255,255,.6);text-decoration:none}
+.b-crumbs a:hover{color:#fff}
+.b-body{background:#fff;padding:5rem 0 6rem;color:#1d1d1f}
+.b-list{display:grid;gap:1.5rem}
+@media (min-width:768px){.b-list{grid-template-columns:repeat(2,1fr)}}
+.b-card{background:#fff;border:1px solid rgba(0,0,0,.1);padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.9rem;transition:background .2s}
+.b-card:hover{background:#f5f5f7;border-color:rgba(157,0,255,.3)}
+.b-card .b-cat{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:#9D00FF}
+.b-card h2{font-size:1.35rem;font-weight:700;letter-spacing:-.5px;line-height:1.25;margin:0}
+.b-card p{color:#6e6e73;font-weight:300;line-height:1.65;margin:0;font-size:.95rem}
+.b-card .b-more{margin-top:auto;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:#1d1d1f}
+.b-card:hover .b-more{color:#9D00FF}
+.b-date{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.7rem;color:#6e6e73}
+.b-empty{color:#6e6e73}
+/* Contenu d'article */
+.b-prose{font-size:1.06rem;line-height:1.8;color:#1d1d1f}
+.b-prose>*+*{margin-top:1.25rem}
+.b-prose h2{font-size:1.65rem;font-weight:800;letter-spacing:-.75px;line-height:1.2;margin-top:3rem}
+.b-prose h3{font-size:1.2rem;font-weight:700;letter-spacing:-.3px;margin-top:2.25rem}
+.b-prose p,.b-prose li{font-weight:400;color:#2c2c30}
+.b-prose ul,.b-prose ol{padding-left:1.4rem}
+.b-prose ul{list-style:square}
+.b-prose ol{list-style:decimal}
+.b-prose li+li{margin-top:.5rem}
+.b-prose li::marker{color:#9D00FF}
+.b-prose a{color:#9D00FF;text-decoration:underline;text-underline-offset:3px}
+.b-prose strong{font-weight:700;color:#1d1d1f}
+.b-prose blockquote{border-left:3px solid #9D00FF;padding:.25rem 0 .25rem 1.25rem;color:#6e6e73;font-style:italic}
+.b-prose code{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.88em;background:#f5f5f7;padding:.15em .4em}
+.b-prose pre{background:#0d0d12;color:#e6e6e6;padding:1.25rem;overflow-x:auto;font-size:.88rem}
+.b-prose pre code{background:none;padding:0}
+.b-prose img{max-width:100%;height:auto}
+.b-prose table{width:100%;border-collapse:collapse;font-size:.95rem}
+.b-prose th,.b-prose td{border:1px solid rgba(0,0,0,.1);padding:.6rem .8rem;text-align:left}
+.b-prose th{background:#f5f5f7;font-weight:600}
+.b-prose hr{border:0;border-top:1px solid rgba(0,0,0,.1);margin:3rem 0}
+.b-cta{margin-top:4rem;background:#050508;color:#fff;padding:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.b-cta h2{font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin:0}
+.b-cta p{color:rgba(255,255,255,.6);font-weight:300;margin:0;line-height:1.6}
+.b-btn{display:inline-block;align-self:flex-start;background:#9D00FF;color:#fff;text-decoration:none;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;padding:.9rem 1.5rem;transition:background .2s}
+.b-btn:hover{background:#8500d6}
+.b-back{display:inline-block;margin-top:3rem;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:#1d1d1f;text-decoration:none}
+.b-back:hover{color:#9D00FF}

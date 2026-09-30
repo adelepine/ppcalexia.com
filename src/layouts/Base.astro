@@ -1,6 +1,10 @@
 ---
 import headerHtml from '../fragments/header.html?raw';
 import footerHtml from '../fragments/footer.html?raw';
+import '../styles/fonts.css';
+import '../styles/site.css';
+import '../styles/fixes.css';
+import '../styles/newsletter.css';
 
 interface Props {
   title: string;
@@ -54,10 +58,6 @@ const orgSchema = {
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="preload" href="/_site/media/051742360c26797e-s.p.0f97p8c3305p~.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/_site/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/_site/css/fonts.css" />
-  <link rel="stylesheet" href="/_site/css/site.css" />
-  <link rel="stylesheet" href="/_site/css/fixes.css" />
-  <link rel="stylesheet" href="/_site/css/newsletter.css" />
   <slot name="head" />
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

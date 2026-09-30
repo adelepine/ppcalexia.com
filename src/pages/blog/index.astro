@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import '../../styles/blog.css';
 import { getCollection } from 'astro:content';
 
 const articles = (await getCollection('blog', ({ data }) => !data.brouillon))
@@ -11,7 +12,6 @@ const fmt = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', month: 
   title="Blog Google Ads & Meta Ads pour e-commerçants | PPC Alexia"
   description="Conseils concrets sur Google Ads, Performance Max, Merchant Center et Meta Ads pour faire croître la rentabilité de votre e-commerce."
 >
-  <link slot="head" rel="stylesheet" href="/_site/css/blog.css" />
   <main>
     <section class="b-hero">
       <div class="b-wrap">

@@ -1,0 +1,5 @@
+/* Correctifs mobile : empêche les grilles de déborder de l'écran */
+@media (max-width: 1023px) {
+  .grid[class*="lg:grid-cols-["] { grid-template-columns: minmax(0, 1fr); }
+}
+.grid > * { min-width: 0; }

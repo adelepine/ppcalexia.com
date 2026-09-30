@@ -1,0 +1,55 @@
+/* Newsletter : formulaire maison (ouvre Substack avec l'e-mail pré-rempli) */
+.nl-label{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:#9D00FF;margin:0 0 .9rem}
+.nl-title{color:#fff;font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:800;letter-spacing:-.8px;line-height:1.15;margin:0 0 .8rem}
+.nl-text{color:rgba(255,255,255,.55);font-weight:300;line-height:1.65;margin:0;font-size:.95rem}
+
+.nl-form{display:flex;gap:0;margin-top:1.5rem;width:100%}
+.nl-field{flex:1;display:flex;align-items:center;background:#0d0d12;border:1px solid rgba(255,255,255,.14);border-right:0;transition:border-color .2s,box-shadow .2s;min-width:0}
+.nl-field:focus-within{border-color:#9D00FF;box-shadow:0 0 0 3px rgba(157,0,255,.18)}
+.nl-prompt{font-family:var(--font-jetbrains),ui-monospace,monospace;color:#9D00FF;padding-left:1rem;font-size:.95rem}
+.nl-field input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:.95rem;padding:.95rem .75rem;caret-color:#9D00FF}
+.nl-field input::placeholder{color:rgba(255,255,255,.3)}
+.nl-btn{background:#9D00FF;color:#fff;border:0;cursor:pointer;font:inherit;font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:1.2px;padding:0 1.4rem;white-space:nowrap;transition:background .2s}
+.nl-btn:hover{background:#8500d6}
+.nl-btn span{display:inline-block;transition:transform .2s}
+.nl-btn:hover span{transform:translateX(3px)}
+.nl-note{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.68rem;color:rgba(255,255,255,.3);margin:.8rem 0 0;letter-spacing:.3px}
+.nl-done{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.8rem;line-height:1.6;color:rgba(255,255,255,.75);margin:1.5rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(86,211,100,.35);background:rgba(86,211,100,.06)}
+.nl-done span{color:#56d364;margin-right:.35rem}
+@media (max-width:480px){
+  .nl-form{flex-direction:column}
+  .nl-field{border-right:1px solid rgba(255,255,255,.14)}
+  .nl-btn{padding:1rem}
+}
+
+/* Bloc pied de page */
+.nl-foot{border-bottom:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+.nl-foot::before{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;background:radial-gradient(circle,rgba(157,0,255,.22) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
+.nl-foot-inner{padding-top:4rem;padding-bottom:4rem}
+@media (max-width:640px){.nl-foot-inner{padding-top:3rem;padding-bottom:3rem}}
+.nl-foot-grid{position:relative;display:grid;gap:2rem;align-items:center}
+.nl-foot .nl-form{margin-top:0}
+@media (min-width:900px){.nl-foot-grid{grid-template-columns:1fr 460px;gap:4rem}}
+
+/* Pop-up façon fenêtre de terminal */
+.nl-pop{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(5,5,8,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.nl-pop.is-open{opacity:1;visibility:visible}
+.nl-card{position:relative;width:100%;max-width:540px;background:#08080e;border:1px solid rgba(157,0,255,.35);box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 80px rgba(157,0,255,.12);transform:translateY(16px) scale(.98);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.nl-pop.is-open .nl-card{transform:none}
+.nl-bar{display:flex;align-items:center;gap:.75rem;padding:.7rem .6rem .7rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
+.nl-dots{display:flex;gap:.45rem}
+.nl-dots i{width:10px;height:10px;display:block;background:#ff5f57}
+.nl-dots i:nth-child(2){background:#ffbd2e}
+.nl-dots i:nth-child(3){background:#28c840}
+.nl-file{font-family:var(--font-jetbrains),ui-monospace,monospace;font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.5px}
+.nl-close{margin-left:auto;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:0;color:rgba(255,255,255,.5);cursor:pointer;font-size:1.4rem;line-height:1}
+.nl-close:hover{color:#fff}
+.nl-body{padding:2rem 2rem 1.4rem}
+.nl-later{display:block;margin:1.25rem auto 0;background:none;border:0;color:rgba(255,255,255,.35);font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;cursor:pointer}
+.nl-later:hover{color:#fff}
+@media (max-width:640px){
+  .nl-pop{align-items:flex-end;padding:0}
+  .nl-card{max-width:none;border-left:0;border-right:0;border-bottom:0}
+  .nl-body{padding:1.6rem 1.25rem 1.1rem}
+}
+@media (prefers-reduced-motion:reduce){.nl-pop,.nl-card{transition:none}}
