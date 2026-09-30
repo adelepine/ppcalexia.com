@@ -53,6 +53,7 @@ const orgSchema = {
   <link rel="stylesheet" href="/_site/css/fonts.css" />
   <link rel="stylesheet" href="/_site/css/site.css" />
   <link rel="stylesheet" href="/_site/css/fixes.css" />
+  <link rel="stylesheet" href="/_site/css/newsletter.css" />
   <slot name="head" />
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
@@ -100,6 +101,78 @@ const orgSchema = {
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
       }
+    })();
+  </script>
+  <!-- Pop-up newsletter -->
+  <div class="nl-pop" id="nl-pop" role="dialog" aria-modal="true" aria-labelledby="nl-pop-title" aria-hidden="true">
+    <div class="nl-card">
+      <button type="button" class="nl-close" data-nl-close aria-label="Fermer">&times;</button>
+      <p class="nl-label">// Newsletter</p>
+      <h2 class="nl-title" id="nl-pop-title">Recevez mes stratégies Google Ads &amp; Meta Ads.</h2>
+      <p class="nl-text">Ce que je teste et ce qui fonctionne sur les comptes e-commerce que je gère, directement dans votre boîte mail.</p>
+      <div class="nl-embed"><iframe data-src="https://ppcalexia.substack.com/embed?transparent=1&light=1" title="Inscription à la newsletter PPC Alexia" frameborder="0" scrolling="no"></iframe></div>
+      <button type="button" class="nl-later" data-nl-close>Non merci</button>
+    </div>
+  </div>
+  <script is:inline>
+    (function () {
+      var pop = document.getElementById('nl-pop');
+      if (!pop) return;
+      var KEY = 'ppca_nl_until';
+      var DAY = 864e5;
+      function get() { try { return +localStorage.getItem(KEY) || 0; } catch (e) { return 0; } }
+      function snooze(days) { try { localStorage.setItem(KEY, String(Date.now() + days * DAY)); } catch (e) {} }
+      function track(name) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: name }); }
+      if (get() > Date.now()) return;
+
+      var iframe = pop.querySelector('iframe');
+      var shown = false, lastFocus = null;
+      var sticky = document.querySelector('div.fixed.bottom-0.z-40');
+
+      function open() {
+        if (shown || document.body.style.overflow === 'hidden') return;
+        shown = true;
+        window.removeEventListener('scroll', onScroll);
+        clearTimeout(timer);
+        if (!iframe.src) iframe.src = iframe.getAttribute('data-src');
+        lastFocus = document.activeElement;
+        pop.classList.add('is-open');
+        pop.setAttribute('aria-hidden', 'false');
+        if (sticky) sticky.style.visibility = 'hidden';
+        pop.querySelector('.nl-close').focus();
+        snooze(7); // ne réapparaît pas avant 7 jours
+        track('newsletter_popup_view');
+      }
+      function close() {
+        pop.classList.remove('is-open');
+        pop.setAttribute('aria-hidden', 'true');
+        if (sticky) sticky.style.visibility = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        track('newsletter_popup_close');
+      }
+      pop.querySelectorAll('[data-nl-close]').forEach(function (b) { b.addEventListener('click', close); });
+      pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop.classList.contains('is-open')) close(); });
+
+      // Clic dans le formulaire Substack : on considère la personne comme intéressée
+      window.addEventListener('blur', function () {
+        if (pop.classList.contains('is-open') && document.activeElement === iframe) {
+          snooze(180);
+          track('newsletter_popup_engage');
+        }
+      });
+
+      // Déclenchement : 5 secondes sur la page, ou 15 % de la page lue,
+      // ou (sur ordinateur) quand la souris quitte la fenêtre vers le haut
+      function onScroll() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h > 0 && window.scrollY / h > 0.15) open();
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      document.addEventListener('mouseout', function (e) {
+        if (!e.relatedTarget && e.clientY <= 0) open();
+      });
+      var timer = setTimeout(open, 5000);
     })();
   </script>
 </body>
