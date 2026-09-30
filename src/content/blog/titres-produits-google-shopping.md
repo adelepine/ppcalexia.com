@@ -1,7 +1,7 @@
 ---
 title: "Titres produits Google Shopping : 5 règles pour gagner en visibilité"
 description: "Le titre est l'attribut du flux qui pèse le plus sur vos impressions Shopping et Performance Max. Voici comment je les structure sur les comptes que je gère."
-date: 2026-09-29
+date: 2025-11-12
 categorie: "Merchant Center"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Quel budget Google Ads pour un e-commerce ? Comment le calculer"
 description: "Il n'y a pas de budget idéal, mais il y a un budget minimum pour que les campagnes apprennent. Voici comment je calcule un budget de départ et quand l'augmenter."
-date: 2026-09-30
+date: 2026-09-16
 categorie: "Stratégie"
 ---
 

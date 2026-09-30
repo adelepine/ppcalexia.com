@@ -1,7 +1,7 @@
 ---
 title: "Shopping standard ou Performance Max : lequel choisir ?"
 description: "Performance Max n'a pas tué Shopping standard. Voici dans quels cas j'utilise l'un, l'autre ou les deux ensemble."
-date: 2026-09-30
+date: 2026-05-13
 categorie: "Google Shopping"
 ---
 

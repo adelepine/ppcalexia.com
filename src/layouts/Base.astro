@@ -106,12 +106,18 @@ const orgSchema = {
   <!-- Pop-up newsletter -->
   <div class="nl-pop" id="nl-pop" role="dialog" aria-modal="true" aria-labelledby="nl-pop-title" aria-hidden="true">
     <div class="nl-card">
-      <button type="button" class="nl-close" data-nl-close aria-label="Fermer">&times;</button>
-      <p class="nl-label">// Newsletter</p>
-      <h2 class="nl-title" id="nl-pop-title">Recevez mes stratégies Google Ads &amp; Meta Ads.</h2>
-      <p class="nl-text">Ce que je teste et ce qui fonctionne sur les comptes e-commerce que je gère, directement dans votre boîte mail.</p>
-      <div class="nl-embed"><iframe data-src="https://ppcalexia.substack.com/embed" title="Inscription à la newsletter PPC Alexia" frameborder="0" scrolling="no"></iframe></div>
-      <button type="button" class="nl-later" data-nl-close>Non merci</button>
+      <div class="nl-bar">
+        <span class="nl-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="nl-file">NEWSLETTER.SH</span>
+        <button type="button" class="nl-close" data-nl-close aria-label="Fermer">&times;</button>
+      </div>
+      <div class="nl-body">
+        <p class="nl-label">// Newsletter</p>
+        <h2 class="nl-title" id="nl-pop-title">Recevez mes stratégies Google Ads &amp; Meta&nbsp;Ads.</h2>
+        <p class="nl-text">Ce que je teste et ce qui fonctionne sur les comptes e-commerce que je gère, directement dans votre boîte mail.</p>
+        <form class="nl-form" action="https://ppcalexia.substack.com/subscribe" method="get" target="_blank" data-medium="popup"><div class="nl-field"><span class="nl-prompt" aria-hidden="true">$</span><input type="email" name="email" required autocomplete="email" placeholder="votre@email.com" aria-label="Votre adresse e-mail" /></div><input type="hidden" name="utm_source" value="ppcalexia.com" /><input type="hidden" name="utm_medium" value="popup" /><button type="submit" class="nl-btn">S'abonner <span aria-hidden="true">→</span></button></form><p class="nl-note"># Gratuit · Sans spam · Désinscription en un clic</p><p class="nl-done" role="status" hidden><span>✓</span> Dernière étape : confirmez votre inscription dans l'onglet Substack qui vient de s'ouvrir.</p>
+        <button type="button" class="nl-later" data-nl-close>Non merci</button>
+      </div>
     </div>
   </div>
   <script is:inline>
@@ -130,7 +136,6 @@ const orgSchema = {
       function track(name) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: name }); }
       if (get() > Date.now() || seen()) return;
 
-      var iframe = pop.querySelector('iframe');
       var shown = false, lastFocus = null;
       var sticky = document.querySelector('div.fixed.bottom-0.z-40');
 
@@ -139,12 +144,12 @@ const orgSchema = {
         shown = true;
         window.removeEventListener('scroll', onScroll);
         clearTimeout(timer);
-        if (!iframe.src) iframe.src = iframe.getAttribute('data-src');
         lastFocus = document.activeElement;
         pop.classList.add('is-open');
         pop.setAttribute('aria-hidden', 'false');
         if (sticky) sticky.style.visibility = 'hidden';
-        pop.querySelector('.nl-close').focus();
+        var inp = pop.querySelector('input[type=email]');
+        if (window.matchMedia('(pointer:fine)').matches && inp) inp.focus(); else pop.querySelector('.nl-close').focus();
         markSeen(); // pas de nouvel affichage pendant cette visite
         track('newsletter_popup_view');
       }
@@ -159,14 +164,6 @@ const orgSchema = {
       pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop.classList.contains('is-open')) close(); });
 
-      // Clic dans le formulaire Substack : on considère la personne comme intéressée
-      window.addEventListener('blur', function () {
-        if (pop.classList.contains('is-open') && document.activeElement === iframe) {
-          snooze(180);
-          track('newsletter_popup_engage');
-        }
-      });
-
       // Déclenchement : 5 secondes sur la page, ou 15 % de la page lue,
       // ou (sur ordinateur) quand la souris quitte la fenêtre vers le haut
       function onScroll() {
@@ -179,6 +176,22 @@ const orgSchema = {
       });
       var timer = setTimeout(open, 5000);
     })();
+  </script>
+  <script is:inline>
+    // Formulaires newsletter (pop-up + pied de page) : ouvre Substack avec l'e-mail pré-rempli
+    document.querySelectorAll('.nl-form').forEach(function (form) {
+      form.addEventListener('submit', function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'newsletter_submit', newsletter_location: form.getAttribute('data-medium') });
+        try { localStorage.setItem('ppca_nl_until', String(Date.now() + 180 * 864e5)); } catch (e) {}
+        setTimeout(function () {
+          var wrap = form.parentNode;
+          form.hidden = true;
+          var note = wrap.querySelector('.nl-note'); if (note) note.hidden = true;
+          var done = wrap.querySelector('.nl-done'); if (done) done.hidden = false;
+        }, 0);
+      });
+    });
   </script>
 </body>
 </html>

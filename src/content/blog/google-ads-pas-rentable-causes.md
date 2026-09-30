@@ -1,7 +1,7 @@
 ---
 title: "Google Ads n'est pas rentable pour votre e-commerce ? Les 7 causes les plus fréquentes"
 description: "Des ventes, un ROAS correct, et pourtant aucune rentabilité. Voici les 7 causes que je retrouve le plus souvent sur les comptes e-commerce."
-date: 2026-09-30
+date: 2026-08-19
 categorie: "Rentabilité"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Produits refusés dans Merchant Center : les causes et comment les corriger"
 description: "Un produit refusé est un produit invisible sur Google Shopping. Voici les motifs de refus les plus fréquents et comment les régler."
-date: 2026-09-30
+date: 2026-03-18
 categorie: "Merchant Center"
 ---
 

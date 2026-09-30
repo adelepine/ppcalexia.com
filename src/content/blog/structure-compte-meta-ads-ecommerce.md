@@ -1,7 +1,7 @@
 ---
 title: "Meta Ads e-commerce : la structure de compte qui fonctionne"
 description: "Moins de campagnes, plus de créations. Voici comment je structure un compte Meta Ads e-commerce aujourd'hui, et ce que j'ai arrêté de faire."
-date: 2026-09-30
+date: 2026-07-08
 categorie: "Meta Ads"
 ---
 

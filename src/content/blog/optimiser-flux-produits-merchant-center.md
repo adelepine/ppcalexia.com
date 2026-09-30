@@ -1,7 +1,7 @@
 ---
 title: "Optimiser son flux produit Merchant Center : au-delà des titres"
 description: "Descriptions, catégories, attributs, images et étiquettes personnalisées : les leviers du flux produit qui font vraiment la différence sur Shopping et Performance Max."
-date: 2026-09-30
+date: 2026-04-15
 categorie: "Merchant Center"
 ---
 

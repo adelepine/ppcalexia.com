@@ -1,7 +1,7 @@
 ---
 title: "Tracking e-commerce : Google Ads, GA4 et Consent Mode v2"
 description: "Des conversions mal mesurées faussent toutes vos décisions. Voici comment vérifier que votre tracking Google Ads et GA4 est fiable et conforme."
-date: 2026-09-30
+date: 2025-12-10
 categorie: "Tracking"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Audit Google Ads e-commerce : la checklist en 15 points"
 description: "Les 15 points que je vérifie en premier quand j'audite un compte Google Ads e-commerce, du tracking à la structure des campagnes."
-date: 2026-09-30
+date: 2026-01-14
 categorie: "Audit"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Performance Max e-commerce : comment structurer vos campagnes"
 description: "Une seule campagne Performance Max pour tout le catalogue, c'est rarement la bonne idée. Voici comment je découpe les campagnes pour garder le contrôle."
-date: 2026-09-30
+date: 2026-06-10
 categorie: "Performance Max"
 ---
 

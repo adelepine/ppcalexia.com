@@ -1,7 +1,7 @@
 ---
 title: "ROAS cible : comment le calculer à partir de votre marge"
 description: "Un ROAS de 4 peut être très rentable ou vous faire perdre de l'argent. Voici comment calculer votre ROAS de seuil et votre ROAS cible à partir de votre marge."
-date: 2026-09-30
+date: 2026-02-11
 categorie: "Rentabilité"
 ---
 
