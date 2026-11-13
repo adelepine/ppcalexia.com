@@ -50,11 +50,19 @@ const schema = {
         <article class="b-prose">
           <Content />
         </article>
-        <aside class="b-cta">
-          <h2>Vous voulez que je regarde votre compte ?</h2>
-          <p>Audit Google Ads offert : 15 minutes, sans engagement, avec des quick wins concrets.</p>
-          <a class="b-btn" target="_blank" rel="noopener noreferrer" href="https://calendly.com/alexia-delepine/rencontrer-un-consultant-make-sense-a">Réserver mon audit →</a>
-        </aside>
+        {categorie === 'ChatGPT Ads' ? (
+          <aside class="b-cta">
+            <h2>Vous voulez parler de ChatGPT Ads ?</h2>
+            <p>Prenons 15 minutes pour voir si la publicité dans ChatGPT a du sens pour votre e-commerce, et par où commencer. Gratuit, sans engagement.</p>
+            <a class="b-btn" target="_blank" rel="noopener noreferrer" href="https://calendly.com/alexia-delepine/rencontrer-un-consultant-make-sense-a">Prendre rendez-vous →</a>
+          </aside>
+        ) : (
+          <aside class="b-cta">
+            <h2>Vous voulez que je regarde votre compte ?</h2>
+            <p>Audit Google Ads offert : 15 minutes, sans engagement, avec des quick wins concrets.</p>
+            <a class="b-btn" target="_blank" rel="noopener noreferrer" href="https://calendly.com/alexia-delepine/rencontrer-un-consultant-make-sense-a">Réserver mon audit →</a>
+          </aside>
+        )}
         <a class="b-back" href="/blog">← Tous les articles</a>
       </div>
     </section>
