@@ -1,7 +1,7 @@
 ---
 title: "Tracking ChatGPT Ads : pixel OpenAI, Conversions API et consentement"
 description: "Pixel, événements standards, Conversions API, déduplication et consentement RGPD : comment mesurer correctement vos campagnes ChatGPT Ads sur un site e-commerce."
-date: 2026-11-13T13:00:00
+date: 2026-09-11
 categorie: "ChatGPT Ads"
 ---
 

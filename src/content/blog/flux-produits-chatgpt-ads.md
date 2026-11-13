@@ -1,7 +1,7 @@
 ---
 title: "Flux produits ChatGPT Ads : préparer son catalogue pour le carrousel shopping"
 description: "Format CSV, SFTP, champs, mise à jour des prix : comment préparer votre flux produits pour le carrousel shopping de ChatGPT Ads, et pourquoi ce n'est pas un simple export Merchant Center."
-date: 2026-11-13T14:00:00
+date: 2026-09-02
 categorie: "ChatGPT Ads"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Ads ou GEO : être cité dans la réponse ou affiché en dessous ?"
 description: "Être recommandé par ChatGPT (GEO) ou payer pour apparaître sous sa réponse (ChatGPT Ads) : les différences, les points communs et comment combiner les deux pour un e-commerce."
-date: 2026-11-13T09:00:00
+date: 2026-10-16
 categorie: "ChatGPT Ads"
 ---
 

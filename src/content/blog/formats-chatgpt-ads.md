@@ -1,7 +1,7 @@
 ---
 title: "Les formats ChatGPT Ads : lequel choisir pour votre e-commerce ?"
 description: "Réponse sponsorisée, carrousel shopping, multi-images : à quoi ressemble chaque format publicitaire dans ChatGPT, leurs spécifications et lequel tester en premier."
-date: 2026-11-13T15:00:00
+date: 2026-11-09
 categorie: "ChatGPT Ads"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Ads en France : ce que le RGPD change pour les annonceurs"
 description: "Pas d'annonces personnalisées, pas d'audiences, secteurs restreints, consentement du pixel : ce qui distingue ChatGPT Ads en France et en Europe, et comment s'adapter."
-date: 2026-11-13T10:00:00
+date: 2026-10-07
 categorie: "ChatGPT Ads"
 ---
 

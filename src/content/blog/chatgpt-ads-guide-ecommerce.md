@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Ads : le guide complet pour les e-commerçants (2026)"
 description: "Formats, ciblage, enchères, tracking, disponibilité en France : tout ce qu'un e-commerçant doit savoir sur la publicité dans ChatGPT avant de lancer sa première campagne."
-date: 2026-11-13T18:00:00
+date: 2026-11-13
 categorie: "ChatGPT Ads"
 ---
 

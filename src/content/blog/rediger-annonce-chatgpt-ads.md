@@ -1,7 +1,7 @@
 ---
 title: "Rédiger une annonce ChatGPT Ads qui convertit"
 description: "Titre, description, image, context hints, page de destination : la méthode pour écrire des annonces ChatGPT Ads pertinentes, avec des exemples pour e-commerce."
-date: 2026-11-13T11:00:00
+date: 2026-11-02
 categorie: "ChatGPT Ads"
 ---
 

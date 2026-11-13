@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Ads ou Google Ads : quelles différences pour un e-commerce ?"
 description: "Ciblage, formats, enchères, tracking, maturité : ce qui sépare ChatGPT Ads de Google Ads, et comment répartir votre budget entre les deux quand on vend en ligne."
-date: 2026-11-13T16:00:00
+date: 2026-09-29
 categorie: "ChatGPT Ads"
 ---
 

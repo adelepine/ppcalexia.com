@@ -1,7 +1,7 @@
 ---
 title: "Combien coûte ChatGPT Ads ? Enchères, CPC et budget de test"
 description: "Modèles de facturation, enchères, CPC observés, budget minimum : combien prévoir pour tester ChatGPT Ads en e-commerce, et comment calculer votre CPC maximum rentable."
-date: 2026-11-13T12:00:00
+date: 2026-09-19
 categorie: "ChatGPT Ads"
 ---
 

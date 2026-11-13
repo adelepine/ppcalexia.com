@@ -1,7 +1,7 @@
 ---
 title: "Créer sa première campagne ChatGPT Ads : le pas-à-pas"
 description: "Compte, structure campagne / groupe d'annonces / annonce, context hints, enchères, validation : comment lancer votre première campagne dans l'Ads Manager de ChatGPT."
-date: 2026-11-13T17:00:00
+date: 2026-11-05
 categorie: "ChatGPT Ads"
 ---
 
